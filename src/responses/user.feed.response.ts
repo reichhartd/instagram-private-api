@@ -168,9 +168,15 @@ export interface UserFeedResponseCarouselMediaItem {
   image_versions2: UserFeedResponseImage_versions2;
   original_width: number;
   original_height: number;
+  video_versions?: UserFeedResponseVideoVersionsItem[];
+  video_duration?: number;
   pk: string;
   carousel_parent_id: string;
-  fb_user_tags: UserFeedResponseFb_user_tags;
+  can_see_insights_as_brand?: boolean;
+  is_commercial?: boolean;
+  commerciality_status?: 'not_commercial';
+  sharing_friction_info?: UserFeedResponseSharingFrictionInfo;
+  fb_user_tags?: UserFeedResponseFb_user_tags;
 }
 export interface UserFeedResponseVideoVersionsItem {
   type: number;
