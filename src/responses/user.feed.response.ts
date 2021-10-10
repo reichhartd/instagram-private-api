@@ -15,6 +15,11 @@ export interface UserFeedResponseItemsItem {
   code: string;
   client_cache_key: string;
   filter_type: number;
+  location?: UserFeedResponseLocation;
+  should_request_ads?: boolean;
+  lng?: number;
+  lat?: number;
+  is_unified_video?: boolean;
   comment_likes_enabled: boolean;
   comment_threading_enabled: boolean;
   has_more_comments: boolean;
@@ -31,11 +36,16 @@ export interface UserFeedResponseItemsItem {
   can_viewer_reshare: boolean;
   caption: null | UserFeedResponseCaption;
   caption_is_edited: boolean;
+  like_and_view_counts_disabled?: boolean;
+  is_commercial?: boolean;
+  commerciality_status?: 'not_commercial';
+  is_paid_partnership?: boolean;
+  playlist_eligibility?: boolean;
   like_count: number;
   has_liked: boolean;
   top_likers: string[];
   facepile_top_likers?: UserFeedResponseFacepileTopLikersItem[];
-  direct_reply_to_author_enabled: boolean;
+  direct_reply_to_author_enabled?: boolean;
   photo_of_you: boolean;
   fb_user_tags?: UserFeedResponseFb_user_tags;
   can_viewer_save: boolean;
@@ -52,6 +62,27 @@ export interface UserFeedResponseItemsItem {
   has_audio?: boolean;
   video_duration?: number;
   view_count?: number;
+  hide_view_all_comment_entrypoint?: boolean;
+  sharing_friction_info?: UserFeedResponseSharingFrictionInfo;
+  product_type?: 'feed';
+  is_in_profile_grid?: boolean;
+  profile_grid_control_enabled?: boolean;
+  deleted_reason?: number;
+  integrity_review_decision?: 'pending';
+  music_metadata?: UserFeedResponseMusicMetadata;
+}
+export interface UserFeedResponseLocation {
+  pk?: number;
+  short_name?: string;
+  facebook_places_id?: number;
+  external_source?: string;
+  name?: string;
+  address?: string;
+  city?: string;
+  has_viewer_saved?: null;
+  lng?: number;
+  lat?: number;
+  is_eligible_for_guides?: boolean;
 }
 export interface UserFeedResponseImage_versions2 {
   candidates: UserFeedResponseCandidatesItem[];
@@ -60,6 +91,8 @@ export interface UserFeedResponseCandidatesItem {
   width: number;
   height: number;
   url: string;
+  scans_profile?: string;
+  estimated_scans_sizes?: number[];
 }
 export interface UserFeedResponseUser {
   pk: number;
@@ -69,12 +102,16 @@ export interface UserFeedResponseUser {
   profile_pic_url: string;
   profile_pic_id?: string;
   is_verified: boolean;
+  follow_friction_type?: number;
   has_anonymous_profile_picture?: boolean;
   can_boost_post?: boolean;
   can_see_organic_insights?: boolean;
   show_insights_terms?: boolean;
   reel_auto_archive?: string;
   is_unpublished?: boolean;
+  is_favorite?: boolean;
+  account_badges?: undefined[];
+  latest_reel_media?: number;
   allowed_commenter_type?: string;
 }
 export interface UserFeedResponseFacepileTopLikersItem {
@@ -120,8 +157,10 @@ export interface UserFeedResponseCaption {
   user: UserFeedResponseUser;
   did_report_as_spam: boolean;
   share_enabled: boolean;
+  is_covered?: boolean;
   media_id: string;
   has_translation: boolean;
+  private_reply_status?: number;
 }
 export interface UserFeedResponseCarouselMediaItem {
   id: string;
@@ -139,4 +178,14 @@ export interface UserFeedResponseVideoVersionsItem {
   height: number;
   url: string;
   id: string;
+}
+export interface UserFeedResponseSharingFrictionInfo {
+  should_have_sharing_friction?: boolean;
+  bloks_app_url?: null;
+}
+export interface UserFeedResponseMusicMetadata {
+  music_canonical_id?: string;
+  audio_type?: null;
+  music_info?: null;
+  original_sound_info?: null;
 }
