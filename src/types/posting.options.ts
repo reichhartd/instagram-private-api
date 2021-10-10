@@ -21,7 +21,7 @@ export interface PostingLocation {
   lat: number;
   lng: number;
   external_id_source: string;
-  external_id: string;
+  external_id: number;
   address: string;
 }
 
