@@ -22,7 +22,7 @@ export interface PostingLocation {
   lng: number;
   external_id_source: string;
   external_id: number;
-  address: string;
+  address?: string;
 }
 
 export interface PostingStoryOptions {
