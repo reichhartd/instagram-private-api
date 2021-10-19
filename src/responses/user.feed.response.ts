@@ -80,8 +80,8 @@ export interface UserFeedResponseLocation {
   address?: string;
   city?: string;
   has_viewer_saved?: null;
-  lng: number;
-  lat: number;
+  lng?: number;
+  lat?: number;
   is_eligible_for_guides?: boolean;
 }
 export interface UserFeedResponseImage_versions2 {
