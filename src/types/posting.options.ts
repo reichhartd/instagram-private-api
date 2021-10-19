@@ -18,8 +18,8 @@ export interface PostingUsertags {
 
 export interface PostingLocation {
   name: string;
-  lat: number;
-  lng: number;
+  lat?: number;
+  lng?: number;
   external_id_source: string;
   external_id: number;
   address?: string;
